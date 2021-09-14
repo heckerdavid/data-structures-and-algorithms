@@ -52,9 +52,13 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 ------------------------------------------------------------------------------------------------ */
 
 const forLoopTwoToThe = (arr) => {
-  let raisedToTheArray = arr.map((number) => Math.pow(2, number));
+  const poweredArray = [];
 
-  return raisedToTheArray;
+  for (let number of arr) {
+    poweredArray.push(Math.pow(2, number));
+  }
+
+  return poweredArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -64,7 +68,11 @@ Write a function named forEachTwoToThe that produces the same output as your for
 ------------------------------------------------------------------------------------------------ */
 
 const forEachTwoToThe = (arr) => {
-  // Solution code here...
+  const anotherPoweredByTwoArray = [];
+
+  arr.forEach(number => anotherPoweredByTwoArray.push(Math.pow(2, number)));
+
+  return anotherPoweredByTwoArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -74,7 +82,9 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 ------------------------------------------------------------------------------------------------ */
 
 const mapTwoToThe = (arr) => {
-  // Solution code here...
+  let raisedToTheArray = arr.map((number) => Math.pow(2, number));
+
+  return raisedToTheArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -238,7 +248,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return two raised to the power of the integer', () => {
     expect(forEachTwoToThe([0, 4, 5])).toStrictEqual([1, 16, 32]);
     expect(forEachTwoToThe([0, 4, 5]).length).toStrictEqual(3);
