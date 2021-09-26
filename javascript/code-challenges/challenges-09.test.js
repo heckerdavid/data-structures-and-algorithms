@@ -133,7 +133,12 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-// I Dont understand this
+  let characterSelected = Object.values(arr).filter(value => value.name === character);
+  if( characterSelected[0].children) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
