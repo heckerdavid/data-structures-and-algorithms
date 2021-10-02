@@ -167,30 +167,44 @@ Here is a sample board:
 ------------------------------------------------------------------------------------------------ */
 
 const detectTicTacToeWin = (board) => {
-  // let win = false;
+  let win = false;
+  console.log('started test');
 
   for (let i = 0; i < 3; i++){
-    if ((board[i][0] === board[i][1] === board[i][2]) && board[i][0] !== '') {
+    if ((board[i][0] === board[i][1]) && (board[i][1] === board[i][2]) && (board[i][0] !== '')) {
+      console.log('found win', 174);
+      win = true;
       return true;
     }
   }
+  if(win){
+    console.log('179...MADE IT');
+    return true;
+  } 
+
 
   for (let i = 0; i < 3; i++) {
-    if ((board[0][i] === board[1][i] === board[2][i]) && board[0][i] !== '') {
-      return true;
+
+    if ((board[0][i] === board[1][i]) === board[2][i] && board[0][i] !== '') {
+      console.log("found win", 185);
+      win = true;
     }
   }
-
-
-  if (board[0][0] === board[1][1] === board[2][2] && board[0][0] !== '') {
-    return true;
-  }
-  if (board[2][0] === board[1][1] === board[0][2] && board[2][0] !== '') {
-    return true;
-  } else {
-    return false;
+  if (win) {
+    return win;
   }
 
+  if ((board[0][0] === board[1][1] === board[2][2] && (board[0][0]) !== '')) {
+    console.log("found win", 195);
+    return true;
+  }
+  if ((board[2][0] === board[1][1] === board[0][2]) && board[2][0] !== '') {
+    console.log("found win");
+    return true;
+  }
+  return false;
+
+    
 
 };
 
