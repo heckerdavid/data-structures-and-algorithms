@@ -7,7 +7,9 @@ Write a function named longestString that takes in an array of strings and retur
 ------------------------------------------------------------------------------------------------ */
 
 const longestString = (arr) => {
-  // requiring this to return -1 for array 2 makes no sense and is not in the requirements on line 6. it fails the test, but the test is poorly written or the actual requirements are not expressed.
+  if(arr.length === 0){
+    return -1;
+  }
   let newArr = arr.map(str => str.length);
   let flag = 0;
   let idx = 0;
@@ -53,7 +55,8 @@ For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
 const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
+  const regex = /\D+/g;
+  return arr.map(str => str.replace(regex, ''));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,7 +68,13 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  let array = str.split('');
+  let newArray = array.filter((char, idx) => {
+    if(idx % 2 === 1){
+      return char;
+    }
+  });
+  return newArray.join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -75,7 +84,14 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  return arr.reduce((str) => str.includes(":)"));
+  let regex = /:\)/;
+  let filter = arr.filter((str) => regex.test(str));
+
+  if (filter.length === arr.length) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -164,7 +180,7 @@ Run your tests from the console: jest challenges-13.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-xdescribe('Testing challenge 1', () => {
+describe('Testing challenge 1', () => {
   test('It should return an index position of the longest string', () => {
     const strArray1 = ['Ginger', 'Goose', 'Tangerine', 'Rosie', 'Mario', 'Malaki']
     const strArray2 = [];
@@ -197,7 +213,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return a standardized set of phone numbers', () => {
     const nums = ['(123) 456-7890', '(222) 222-2222'];
 
@@ -206,7 +222,7 @@ xdescribe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should only return the odd indexed characters from the string', () => {
     expect(onlyOddChars('0123456789')).toStrictEqual('13579');
     expect(onlyOddChars('abcd')).toStrictEqual('bd');
