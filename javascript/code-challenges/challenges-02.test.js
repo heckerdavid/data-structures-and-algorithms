@@ -215,7 +215,14 @@ const snorlaxStats = {
 };
 
 const extractStats = (arr) => {
-// 
+  class Object {
+    constructor(name, total) {
+      this.name = name;
+      this.total = total;
+    }
+  }
+  return arr.map(singleStat => new Object(singleStat.stat.name, (singleStat.effort + singleStat.baseStat)));
+
 };
 
 /* ------------------------------------------------------------------------------------------------
