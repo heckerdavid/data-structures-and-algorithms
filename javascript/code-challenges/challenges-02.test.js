@@ -97,15 +97,8 @@ Read the MDN documentation on String.charCodeAt() if necessary.
 For example: charCode(['h','i']) returns [104, 105].
 ------------------------------------------------------------------------------------------------ */
 
-const charCode = (arr) => {
-  let utfFromString = [];
+const charCode = arr => arr.map(letter => letter.charCodeAt());
 
-  for (let i = 0; i < arr.length; i++) {
-    utfFromString.push(arr.charCodeAt(i));
-  }
-
-  return utfFromString;
-};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -175,9 +168,8 @@ const snorlaxAbilities = {
   weight: 4600,
 };
 
-const extractAbilities = (arr) => {
-  // Solution code here...
-};
+const extractAbilities = arr => arr.map(chara => chara.ability.name);
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
@@ -223,7 +215,7 @@ const snorlaxStats = {
 };
 
 const extractStats = (arr) => {
-  // Solution code here...
+// 
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -288,7 +280,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return an array containing the character code for each letter', () => {
     expect(charCode(['C', 'o', 'd', 'e', '3', '0', '1'])).toStrictEqual([ 67, 111, 100, 101, 51, 48, 49 ]);
     expect(charCode(['C', 'o', 'd', 'e', '3', '0', '1']).length).toStrictEqual(7);
@@ -317,7 +309,7 @@ describe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should return an array containing only the ability names', () => {
     expect(extractAbilities(snorlaxAbilities.abilities)).toStrictEqual(['gluttony', 'cute charm', 'immunity']);
     expect(extractAbilities(snorlaxAbilities.abilities).length).toStrictEqual(3);
