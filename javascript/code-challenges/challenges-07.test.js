@@ -120,11 +120,7 @@ const gruffaloCrumble = {
 };
 
 
-const listFoods = (recipe) => {
-  let result = recipe.ingredients.map((str) => str.replace(/\d+ \w+ |\d+ \w+.\w+ /g, ''));
-
-  return result;
-};
+const listFoods = recipe => recipe.ingredients.map((str) => str.replace(/\d+ \w+ |\d+ \w+.\w+ /g, ''));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal

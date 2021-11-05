@@ -22,7 +22,7 @@ For example:
 Returns: ['dyoll', 'eimaj'];
 ------------------------------------------------------------------------------------------------ */
 
-const getNames = (arr) => arr.map(person => person.name.split('').reverse().join(''));
+const getNames = arr => arr.map(person => person.name.split('').reverse().join(''));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -31,11 +31,7 @@ Write a function that appends ' The end.' to a string, and returns the modified 
 
 ------------------------------------------------------------------------------------------------ */
 
-const appendTheEnd = (str) => {
-  let newString = str + ' The end.';
-
-  return newString;
-};
+const appendTheEnd = str => str + ' The end.';
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -82,7 +78,7 @@ setStatusAsAuthor(people);
 console.log(people[1].isAuthor) prints true
 ------------------------------------------------------------------------------------------------ */
 
-const setStatusAsAuthor = (people) => people.map(person => person.isAuthor = true);
+const setStatusAsAuthor = people => people.map(person => person.isAuthor = true);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
