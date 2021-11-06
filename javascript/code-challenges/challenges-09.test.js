@@ -53,7 +53,7 @@ HR has asked you to change the data to make it easier to print so that it looks 
 
 ------------------------------------------------------------------------------------------------ */
 
-const updateNumbers = (obj) => {
+const updateNumbers = obj => {
   let arr = [];
   for (const pair of Object.entries(obj)) {
     arr.push(`${pair[0]}: ${pair[1]}`);
@@ -112,7 +112,7 @@ const characters = [
   },
 ];
 
-const getHouses = (arr) => {
+const getHouses = arr => {
   let houses = [];
   for (const family of arr) {
     houses.push(family.house);
