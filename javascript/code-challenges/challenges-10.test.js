@@ -170,9 +170,7 @@ Here is a sample board:
 The top row of the board is considered row zero and row numbers increase as they go down.
 ------------------------------------------------------------------------------------------------ */
 
-const battleship = (board, row, col) => {
-  //  Solution code here...
-};
+const battleship = (board, row, col) => board[row][col] === '#' ? 'hit' : 'miss';
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -182,8 +180,15 @@ Write a function named calculateProduct that takes in a two-dimensional array of
 For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
-const calculateProduct = (numbers) => {
-  // Solution code here...
+const calculateProduct = numbers => {
+  let total = 1;
+
+  for (let number of numbers) {
+    for (let value of number){
+      total *= value;
+    }
+  }
+  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -202,8 +207,16 @@ const weeklyTemperatures = [
   [65, 56, 55, 52, 55, 62, 57],
 ];
 
-const averageDailyTemperature = (weather) => {
-  // Solution code here...
+const averageDailyTemperature = weather => {
+  let total = 0;
+  let days = 0;
+
+  weather.map(day => day.map(temp => {
+    days += 1;
+    total += temp;
+  }));
+
+  return total / days;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -223,8 +236,19 @@ let lowestWeeklyTemperatureData = [
   [65, 56, 55, 52, 55, 62, 57],
 ];
 
-const lowestWeeklyAverage = (weather) => {
-  // Solution code here...
+const lowestWeeklyAverage = weather => {
+  let aveData = [];
+
+  weather.map( weeksData => {
+    let total = 0;
+    weeksData.map(day => total += day);
+    aveData.push(total/7);
+  }
+
+  );
+
+  return aveData.sort()[0];
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -240,7 +264,20 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
 
 const excel = (str) => {
-  // Solution code here...
+  let idk = str.split('\n');
+  let retArr = [];
+  for (let trimmedStr of idk) {
+    let total = 0;
+    for (let letter of trimmedStr) {
+      if (letter % 1 === 0) {
+        total += parseInt(letter);
+      }
+    }
+    retArr.push(total);
+  }
+
+  return retArr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -307,7 +344,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   const battleshipData = [
     ['#', ' ', '#', ' '],
     ['#', ' ', '#', ' '],
@@ -326,7 +363,7 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should multiply all the numbers together', () => {
     expect(calculateProduct([[1, 2], [3, 4], [5, 6]])).toStrictEqual(720);
   });
@@ -339,20 +376,20 @@ xdescribe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should calculate and return the average temperature of the data set', () => {
     expect(averageDailyTemperature(weeklyTemperatures)).toStrictEqual(60.25);
   });
 });
 
-xdescribe('Testing challenge 10', () => {
+describe('Testing challenge 10', () => {
   test('It should return the lowest weekly average temperature within the data set', () => {
     expect(lowestWeeklyAverage(weeklyTemperatures)).toStrictEqual(57);
     expect(lowestWeeklyAverage(lowestWeeklyTemperatureData)).toStrictEqual(46);
   });
 });
 
-xdescribe('Testing challenge 11', () => {
+describe('Testing challenge 11', () => {
   test('It should return the total count for each row', () => {
     let result = excel('1,1,1\n4,4,4\n9,9,9');
     expect(result.length).toStrictEqual(3);

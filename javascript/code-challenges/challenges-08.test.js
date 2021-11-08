@@ -63,7 +63,7 @@ Write a function named containsW that takes in a string. This function should us
 
 ------------------------------------------------------------------------------------------------ */
 
-const containsW = (str) => {
+const containsW = str => {
   let regex = /w/g;
 
   return regex.test(str);
@@ -81,7 +81,7 @@ For example:
 'hello world' returns false
 ------------------------------------------------------------------------------------------------ */
 
-const isNum = (input) => {
+const isNum = input => {
   let regex = /\d/g;
 
   return regex.test(input);
@@ -94,7 +94,7 @@ Write a function named containsWorld that takes in a string or number of any len
 
 ------------------------------------------------------------------------------------------------ */
 
-const containsWorld = (input) => {
+const containsWorld = input => {
   let regex = /world/g;
 
   return regex.test(input);
@@ -108,7 +108,7 @@ Write a function named isCapitalized that takes in a string. This function shoul
 Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
-const isCapitalized = (str) => {
+const isCapitalized = str => {
   let regex = /[A-Z]\w*/g;
   let retArray;
 
@@ -127,7 +127,7 @@ CHALLENGE 6
 Write a function named citiesAtoJ that takes in an array of city names and uses a regular expression pattern to return a new array containing any cities that begin with the letters A through J, inclusive.
 ------------------------------------------------------------------------------------------------ */
 
-const citiesAtoJ = (arr) => {
+const citiesAtoJ = arr => {
   let regex = /^[A-J]\w+/g;
 
   return arr.filter(city => city.match(regex));
