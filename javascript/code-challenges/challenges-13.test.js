@@ -30,9 +30,7 @@ Write a function named firstLetters that takes in an array of strings and return
 For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 'w', 'w', ':']
 ------------------------------------------------------------------------------------------------ */
 
-const firstLetters = (arr) => {
-  return arr.map((str) => str.charAt(0));
-};
+const firstLetters = arr => arr.map((str) => str.charAt(0));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -42,9 +40,7 @@ Write a function named findHappiness that takes in an array of strings and retur
 For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this is great :)', ':)))))']
 ------------------------------------------------------------------------------------------------ */
 
-const findHappiness = (arr) => {
-  return arr.filter((str) => str.includes(':)'));
-};
+const findHappiness = arr => arr.filter((str) => str.includes(':)'));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4

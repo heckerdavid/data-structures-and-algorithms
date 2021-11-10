@@ -275,7 +275,7 @@ const excel = (str) => {
     }
     retArr.push(total);
   }
-
+ 
   return retArr;
 
 };
