@@ -10,11 +10,11 @@ Write a function named screenForNames that takes in an array of strings and uses
 
 ------------------------------------------------------------------------------------------------ */
 
-const screenForNames = (arr) => {
+const screenForNames = arr => {
   const regex = /[A-Z]\w+. \w+/g;
+
   return arr.filter(name => regex.test(name));
-  
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -24,10 +24,7 @@ Write a function named toTitleCase that takes in an array of strings and returns
 For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyver'].
 ------------------------------------------------------------------------------------------------ */
 
-const toTitleCase = (arr) => {
-  return arr.map(str => str[0].toUpperCase() + str.substr(1));
-};
-
+const toTitleCase = arr => arr.map(str => str[0].toUpperCase() + str.substr(1));
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -99,7 +96,7 @@ let starWarsData = [{
   gender: 'n/a'
 }];
 
-let biggerThanLuke = (arr) => {
+let biggerThanLuke = arr => {
   const flag = arr.filter(item => item.name === 'Luke Skywalker');
 
   let biggerThan = arr.filter(item => parseInt(item.mass) > parseInt(flag[0].mass));
@@ -107,7 +104,6 @@ let biggerThanLuke = (arr) => {
   let names = biggerThan.map(char => char.name);
 
   return names.join(' - ');
-
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -124,11 +120,7 @@ Here is an example of the input:
 This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
-const sortBy = (property, arr) => {
-
-  return arr.sort((a, b) => (a[property] > b[property] ? 1 : -1));
-
-};
+const sortBy = (property, arr) => arr.sort((a, b) => (a[property] > b[property] ? 1 : -1));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 
@@ -142,8 +134,9 @@ http://www.insecure.com returns false because the URL is not secure
 https://secure.com returns true because the URL is secure
 https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
-const isSecure = (url) => {
+const isSecure = url => {
   const regex = /https:\/\//;
+
   return regex.test(url);
 };
 
