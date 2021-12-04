@@ -80,3 +80,4 @@ From the root of the `data-structures-and-algorithms/python` folder, execute the
 * [Challenge 01 - array reverse](./01_array_reverse/README.md)
 * [Challenge 02 - insert shift list](./02_insert_shift_list/README.md)
 * [Challenge 03 - list binary search](./03_list_binary_search/README.md)
+* [Challenge 05 - linked list](./05_linked_list/README.md)
