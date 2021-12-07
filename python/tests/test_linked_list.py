@@ -1,3 +1,4 @@
+import pytest
 from linked_list.linked_list import LinkedList, Node
 
 
@@ -92,4 +93,104 @@ def test_delete_longer_list():
     new.insert(7)
     actual = new.delete('this one')
     expected = "this one deleted from list."
+    assert actual == expected
+
+
+def test_append():
+    new = LinkedList()
+    new.insert(9)
+    new.insert(8)
+    new.insert(7)
+
+    new.append(1)
+
+    actual = new.__str__()
+    expected = "{ 7 } -> { 8 } -> { 9 } -> { 1 } -> NULL"
+    assert actual == expected
+
+def test_append_many():
+    new = LinkedList()
+    new.insert(9)
+    new.insert(8)
+    new.insert(7)
+
+    new.append(1)
+    new.append(2)
+    new.append(3)
+
+    actual = new.__str__()
+    expected = "{ 7 } -> { 8 } -> { 9 } -> { 1 } -> { 2 } -> { 3 } -> NULL"
+    assert actual == expected
+
+
+
+def test_append_empty():
+    new = LinkedList()
+
+    new.append(1)
+
+    actual = new.head.value
+    expected = 1
+    assert actual == expected
+
+def test_insert_before():
+    new = LinkedList()
+    new.insert(9)
+    new.insert(8)
+    new.insert(7)
+
+    new.insert_before(8, 1)
+
+    actual = new.__str__()
+    expected = "{ 7 } -> { 1 } -> { 8 } -> { 9 } -> NULL"
+    assert actual == expected
+
+# @pytest.mark.skip('how do I test exceptions?')
+def test_insert_before():
+    new = LinkedList()
+    new.insert(9)
+    new.insert(8)
+    new.insert(7)
+
+    new.insert_before(7, 1)
+
+    actual = new.__str__()
+    expected = "{ 1 } -> { 7 } -> { 8 } -> { 9 } -> NULL"
+    assert actual == expected
+
+@pytest.mark.skip('how do I test exceptions?')
+def test_insert_before_fail():
+    new = LinkedList()
+    new.insert(9)
+    new.insert(8)
+    new.insert(7)
+
+    new.insert_before(6, 1)
+
+    actual = new.insert_before(6, 1)
+    expected = "6 not in list."
+    assert actual == expected
+
+def test_insert_after():
+    new = LinkedList()
+    new.insert(9)
+    new.insert(8)
+    new.insert(7)
+
+    new.insert_after(8, 1)
+
+    actual = new.__str__()
+    expected = "{ 7 } -> { 8 } -> { 1 } -> { 9 } -> NULL"
+    assert actual == expected
+
+def test_insert_after_last():
+    new = LinkedList()
+    new.insert(9)
+    new.insert(8)
+    new.insert(7)
+
+    new.insert_after(9, 1)
+
+    actual = new.__str__()
+    expected = "{ 7 } -> { 8 } -> { 9 } -> { 1 } -> NULL"
     assert actual == expected
