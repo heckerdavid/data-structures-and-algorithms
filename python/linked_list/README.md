@@ -1,9 +1,11 @@
 # Singly Linked List
 <!-- Short summary or background information -->
 Code Challenge 05
-
+Code Challenge 06
 ## Challenge
 <!-- Description of the challenge -->
+* Code Challenge 05
+
 Node
     Create a Node class that has properties for the value stored in the Node, and a pointer to the next Node.
 
@@ -28,6 +30,19 @@ to string
     Arguments: none
     Returns: a string representing all the values in the Linked List, formatted as:
         "{ a } -> { b } -> { c } -> NULL"
+
+* Code Challenge 05
+Write the following methods for the Linked List class:
+
+append
+    arguments: new value
+    adds a new node with the given value to the end of the list
+insert before
+    arguments: value, new value
+    adds a new node with the given new value immediately before the first node that has the value specified
+insert after
+    arguments: value, new value
+    adds a new node with the given new value immediately after the first node that has the value specified
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
