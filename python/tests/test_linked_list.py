@@ -194,3 +194,85 @@ def test_insert_after_last():
     actual = new.__str__()
     expected = "{ 7 } -> { 8 } -> { 9 } -> { 1 } -> NULL"
     assert actual == expected
+
+def test_kth():
+    new = LinkedList()
+    assert new.kth_from_the_end
+
+def test_kth_1():
+    new = LinkedList()
+    new.insert(9)
+    new.insert(8)
+    new.insert(7)
+
+
+    actual = new.kth_from_the_end(0)
+    expected = 9
+    assert actual == expected
+
+def test_kth_3():
+    new = LinkedList()
+    new.insert(9)
+    new.insert(8)
+    new.insert(7)
+    new.insert(6)
+    new.insert(5)
+    new.insert(4)
+    new.insert(3)
+    new.insert(2)
+
+    actual = new.kth_from_the_end(3)
+    expected = 6
+    assert actual == expected
+
+def test_kth_long_list():
+    new = LinkedList()
+    new.insert(9)
+    new.insert(8)
+    new.insert(7)
+    new.insert(6)
+    new.insert(5)
+    new.insert(4)
+    new.insert(3)
+    new.insert(2)
+    new.insert(9)
+    new.insert(8)
+    new.insert(7)
+    new.insert(6)
+    new.insert(5)
+    new.insert(4)
+    new.insert(3)
+    new.insert(2)
+
+    actual = new.kth_from_the_end(7)
+    expected = 2
+    assert actual == expected
+
+def test_kth_greater_than_list():
+    new = LinkedList()
+    new.insert(9)
+    new.insert(8)
+    new.insert(7)
+
+
+    actual = new.kth_from_the_end(4)
+    expected = '4 is larger than the length of this list'
+    assert actual == expected
+
+def test_kth_negative():
+    new = LinkedList()
+    new.insert(9)
+    new.insert(8)
+    new.insert(7)
+
+    actual = new.kth_from_the_end(-4)
+    expected = None
+    assert actual == expected
+
+def test_kth_short():
+    new = LinkedList()
+    new.insert(9)
+
+    actual = new.kth_from_the_end(0)
+    expected = 9
+    assert actual == expected

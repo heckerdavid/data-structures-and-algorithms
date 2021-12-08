@@ -64,6 +64,26 @@ class LinkedList:
             previous = current
             current = current.next
 
+    def kth_from_the_end(self, k):
+        finder = self.head
+        follower = self.head
+        length = 0
+
+        if finder is None or k < 0:
+            return
+
+        while finder.next:
+            length += 1
+            finder = finder.next
+
+        if k > length:
+            return f'{k} is larger than the length of this list'
+
+        for _ in range(length - k):
+            follower = follower.next
+
+        return follower.value
+
 
     def append(self, value) -> None:
         current = self.head
