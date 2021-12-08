@@ -54,8 +54,12 @@ kth from end
     You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
 
 ![Kth From The End](./kth_from_the_end.png)
+PR: https://github.com/heckerdavid/data-structures-and-algorithms/pull/21
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-
+Challenge 07:
+Iterated over the list to find length then iterated again to find desired item,
+time O(n)
+space O(1)
 ## API
 <!-- Description of each method publicly available to your Linked List -->
