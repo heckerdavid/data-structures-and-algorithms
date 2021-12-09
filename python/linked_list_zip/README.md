@@ -12,7 +12,7 @@ Try and keep additional space down to O(1)
 You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
 
 ![linked list zip](./linked_list_zip.png)
-PR:
+PR: https://github.com/heckerdavid/data-structures-and-algorithms/pull/22
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
