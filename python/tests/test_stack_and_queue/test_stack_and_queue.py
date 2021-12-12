@@ -13,8 +13,11 @@ Can successfully empty a queue after multiple dequeues
 Can successfully instantiate an empty queue
 Calling dequeue or peek on empty queue raises exception'''
 
+from attr import s
 from stack_and_queue.queue import Queue
 from stack_and_queue.stack import Stack
+from stack_and_queue.underflow import UnderFlowError
+import pytest
 
 def test_import():
     assert Stack()
@@ -24,9 +27,8 @@ def test_import():
 def test_make_empty_stack_and_peek():
     stack = Stack()
 
-    actual = stack.peek()
-    expected = None
-    assert actual == expected
+    with pytest.raises(UnderFlowError):
+        stack.peek()
 
 def test_push_to_empty_stack():
     stack = Stack()
@@ -45,6 +47,12 @@ def test_pop_from_stack():
     expected = 8
     assert actual == expected
 
+def test_pop_from_empty_stack():
+    stack = Stack()
+
+    with pytest.raises(UnderFlowError):
+        stack.pop()
+
 def test_multiple_pops_from_stack():
     stack = Stack()
     stack.push(9)
@@ -59,5 +67,19 @@ def test_multiple_pops_from_stack():
     assert actual == expected
 
 
+def test_multiple_pops_from_stack_until_empty():
+    stack = Stack()
+    stack.push(9)
+    stack.push(8)
+    stack.push(7)
+
+    stack.pop()
+    stack.pop()
+    stack.pop()
+    with pytest.raises(UnderFlowError):
+        stack.peek()
+
 def test_exception_on_empty_stack():
-    pass
+    stack = Stack()
+    with pytest.raises(UnderFlowError):
+        stack.peek()

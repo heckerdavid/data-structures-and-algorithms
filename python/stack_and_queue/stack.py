@@ -1,4 +1,5 @@
 from stack_and_queue.node import Node
+from stack_and_queue.underflow import UnderFlowError
 
 class Stack:
     def __init__(self) -> None:
@@ -7,14 +8,18 @@ class Stack:
 
     def peek(self) -> any:
         if not self.top:
-            return None #TODO raise exception
+            raise UnderFlowError
         return self.top.value
 
 
     def push(self, value) -> None:
         self.top = Node(value, self.top)
 
-    def pop(self):
+
+    def pop(self) -> any:
+        if not self.top:
+            raise UnderFlowError
+
         temporary_holder = self.top
 
         self.top = self.top.next
