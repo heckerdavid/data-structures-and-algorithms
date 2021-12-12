@@ -158,18 +158,16 @@ def test_insert_before():
     expected = "{ 1 } -> { 7 } -> { 8 } -> { 9 } -> NULL"
     assert actual == expected
 
-@pytest.mark.skip('how do I test exceptions?')
+
 def test_insert_before_fail():
     new = LinkedList()
     new.insert(9)
     new.insert(8)
     new.insert(7)
 
-    new.insert_before(6, 1)
+    with pytest.raises(Exception):
+        new.insert_before(6, 1)
 
-    actual = new.insert_before(6, 1)
-    expected = "6 not in list."
-    assert actual == expected
 
 def test_insert_after():
     new = LinkedList()
