@@ -25,3 +25,6 @@ class Stack:
         self.top = self.top.next
 
         return temporary_holder.value
+
+    def is_empty(self):
+        return not self.top

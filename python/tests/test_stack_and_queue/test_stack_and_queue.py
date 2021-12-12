@@ -85,6 +85,11 @@ def test_exception_on_empty_stack():
         stack.peek()
 
 
+def test_stack_is_empty():
+    stack = Stack()
+    actual = stack.is_empty()
+    expected = True
+    assert actual == expected
 
 # Queue tests
 def test_make_empty_queue_and_peek():
@@ -95,7 +100,7 @@ def test_make_empty_queue_and_peek():
 
 def test_push_to_empty_queue():
     queue = Queue()
-    queue.push(9)
+    queue.enqueue(9)
 
     actual = queue.peek()
     expected = 9
@@ -103,11 +108,11 @@ def test_push_to_empty_queue():
 
 def test_push_multiple_pushes_to_queue():
     queue = Queue()
-    queue.push(9)
-    queue.push(8)
-    queue.push(7)
-    queue.push(6)
-    queue.pop()
+    queue.enqueue(9)
+    queue.enqueue(8)
+    queue.enqueue(7)
+    queue.enqueue(6)
+    queue.dequeue()
 
     actual = queue.peek()
     expected = 8
@@ -115,25 +120,60 @@ def test_push_multiple_pushes_to_queue():
 
 def test_pop_from_queue():
     queue = Queue()
-    queue.push(9)
+    queue.enqueue(9)
 
-    actual = queue.pop()
+    actual = queue.dequeue()
     expected = 9
     assert actual == expected
 
 def test_pop_from_empty_queue():
     queue = Queue()
     with pytest.raises(UnderFlowError):
-        queue.pop()
+        queue.dequeue()
 
 def test_multiple_pops_from_queue():
     queue = Queue()
-    queue.push(9)
-    queue.push(8)
-    queue.push(7)
+    queue.enqueue(9)
+    queue.enqueue(8)
+    queue.enqueue(7)
 
-    queue.pop()
-    queue.pop()
-    actual = queue.pop()
+    queue.dequeue()
+    queue.dequeue()
+    actual = queue.dequeue()
     expected = 7
+    assert actual == expected
+
+
+def test_multiple_pops_from_queue_until_empty():
+    queue = Queue()
+    queue.enqueue(9)
+    queue.enqueue(8)
+    queue.enqueue(7)
+
+    queue.dequeue()
+    queue.dequeue()
+    queue.dequeue()
+    with pytest.raises(UnderFlowError):
+        queue.dequeue()
+
+
+def test_queue_peek():
+    queue = Queue()
+    queue.enqueue(9)
+
+    actual = queue.peek()
+    expected = 9
+    assert actual == expected
+
+
+def test_exception_on_empty_queue_peek():
+    queue = Queue()
+
+    with pytest.raises(UnderFlowError):
+        queue.peek()
+
+def test_queue_is_empty():
+    queue = Queue()
+    actual = queue.is_empty()
+    expected = True
     assert actual == expected

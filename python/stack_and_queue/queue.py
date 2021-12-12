@@ -13,7 +13,7 @@ class Queue:
 
         return self.front.value
 
-    def push(self, value):
+    def enqueue(self, value):
 
         if not self.front:
             self.front = Node(value)
@@ -23,14 +23,16 @@ class Queue:
         self.back.next = Node(value)
         self.back = self.back.next
 
-    def pop(self):
+    def dequeue(self):
+
         if not self.front:
             raise UnderFlowError
 
         temp_value_holder = self.front.value
-        if self.front.next:
-            self.front = self.front.next
-        else:
-            self.front = None
+
+        self.front = self.front.next
 
         return temp_value_holder
+
+    def is_empty(self):
+        return not self.front
