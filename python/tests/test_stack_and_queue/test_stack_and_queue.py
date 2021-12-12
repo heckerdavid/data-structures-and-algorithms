@@ -83,3 +83,20 @@ def test_exception_on_empty_stack():
     stack = Stack()
     with pytest.raises(UnderFlowError):
         stack.peek()
+
+
+
+# Queue tests
+def test_make_empty_queue_and_peek():
+    queue = Queue()
+
+    with pytest.raises(UnderFlowError):
+        queue.peek()
+
+def test_push_to_empty_queue():
+    queue = Queue()
+    queue.push(9)
+
+    actual = queue.peek()
+    expected = 9
+    assert actual == expected
