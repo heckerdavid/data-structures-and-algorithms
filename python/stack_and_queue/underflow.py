@@ -1,0 +1,2 @@
+class UnderFlowError(Exception):
+    pass
