@@ -100,3 +100,40 @@ def test_push_to_empty_queue():
     actual = queue.peek()
     expected = 9
     assert actual == expected
+
+def test_push_multiple_pushes_to_queue():
+    queue = Queue()
+    queue.push(9)
+    queue.push(8)
+    queue.push(7)
+    queue.push(6)
+    queue.pop()
+
+    actual = queue.peek()
+    expected = 8
+    assert actual == expected
+
+def test_pop_from_queue():
+    queue = Queue()
+    queue.push(9)
+
+    actual = queue.pop()
+    expected = 9
+    assert actual == expected
+
+def test_pop_from_empty_queue():
+    queue = Queue()
+    with pytest.raises(UnderFlowError):
+        queue.pop()
+
+def test_multiple_pops_from_queue():
+    queue = Queue()
+    queue.push(9)
+    queue.push(8)
+    queue.push(7)
+
+    queue.pop()
+    queue.pop()
+    actual = queue.pop()
+    expected = 7
+    assert actual == expected

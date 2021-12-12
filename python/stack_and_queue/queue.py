@@ -18,3 +18,19 @@ class Queue:
         if not self.front:
             self.front = Node(value)
             self.back = self.front
+            return
+
+        self.back.next = Node(value)
+        self.back = self.back.next
+
+    def pop(self):
+        if not self.front:
+            raise UnderFlowError
+
+        temp_value_holder = self.front.value
+        if self.front.next:
+            self.front = self.front.next
+        else:
+            self.front = None
+
+        return temp_value_holder
