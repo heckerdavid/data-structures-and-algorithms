@@ -19,3 +19,6 @@ class PseudoQueue:
             self.enqueue_stack.push(self.dequeue_stack.pop())
 
         return temp_value_holder
+
+    def is_empty(self):
+        return self.enqueue_stack.is_empty()

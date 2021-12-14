@@ -64,3 +64,10 @@ def test_dequeue_until_past_empty():
 
     with pytest.raises(UnderFlowError):
         psqueue.dequeue()
+
+def test_is_empty():
+    psqueue = PseudoQueue()
+
+    actual = psqueue.is_empty()
+    expected = True
+    assert actual == expected
