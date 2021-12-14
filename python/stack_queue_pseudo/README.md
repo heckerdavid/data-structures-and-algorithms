@@ -12,3 +12,4 @@ I wrote this so that it would take O(1) time to enqueue to the stack, assuming t
 
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->
+PR: https://github.com/heckerdavid/data-structures-and-algorithms/pull/25
