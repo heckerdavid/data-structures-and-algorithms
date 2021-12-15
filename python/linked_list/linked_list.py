@@ -119,3 +119,10 @@ class LinkedList:
             previous = current
             current = current.next
         return f'Cannot delete {value}; {value} not found in list.'
+
+
+    def get_length(self, node, working_length=0) -> int:
+        if node is None:
+            return working_length
+        return self.get_length(node.next, working_length + 1)
+
