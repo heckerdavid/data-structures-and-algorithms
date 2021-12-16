@@ -2,6 +2,40 @@ import pytest
 from linked_list.linked_list import LinkedList, Node
 
 
+def test_get_length():
+    new = LinkedList()
+    new.insert(9)
+    new.insert(8)
+    new.insert(7)
+    new.insert(9)
+    new.insert(8)
+    new.insert(7)
+    actual = new.get_length(new.head)
+    expected = 6
+    assert actual == expected
+
+def test_get_length():
+    new = LinkedList()
+    new.insert(9)
+    new.insert(8)
+    new.insert(7)
+    new.insert(9)
+    new.insert(8)
+    new.insert(7)
+    new.insert(9)
+    new.insert(8)
+    new.insert(7)
+    actual = new.get_length(new.head)
+    expected = 9
+    assert actual == expected
+
+def test_get_length_empty():
+    new = LinkedList()
+
+    actual = new.get_length(new.head)
+    expected = 0
+    assert actual == expected
+
 def test_import():
     assert LinkedList
 
@@ -207,6 +241,8 @@ def test_kth_1():
     actual = new.kth_from_the_end(0)
     expected = 9
     assert actual == expected
+
+
 
 def test_kth_3():
     new = LinkedList()

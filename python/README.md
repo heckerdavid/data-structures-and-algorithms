@@ -84,3 +84,4 @@ From the root of the `data-structures-and-algorithms/python` folder, execute the
 * [Challenge 08 - linked list zip](./linked_list_zip/README.md)
 * [Challenge 11 - Pseudo Queue with Stacks](./stack_queue_pseudo/README.md)
 * [Challenge 12 - AnimalShelter](./stack_queue_animal_shelter/README.md)
+* [Challenge 13 - Bracket Validation](./stack_queue_brackets/README.md)
