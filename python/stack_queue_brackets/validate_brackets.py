@@ -1,8 +1,8 @@
 from stack_and_queue.stack import Stack
 
 def validate_brackets(string):
-    left = Stack()
-    right = Stack()
+    stack = Stack()
+
     acceptable_values = {
         '[':']',
         '{':'}',
@@ -11,15 +11,12 @@ def validate_brackets(string):
 
     for char in string:
         if char in acceptable_values.keys():
-            left.push(char)
+            stack.push(char)
         elif char in acceptable_values.values():
-            right.push(char)
+            if stack.is_empty():
+                return False
+            elif char == acceptable_values[stack.pop()]:
+                continue
 
-    while not left.is_empty() and not right.is_empty():
-        if acceptable_values[left.pop()] != right.pop():
-            return False
 
-    if left.is_empty() != right.is_empty():
-        return False
-
-    return True
+    return stack.is_empty()
