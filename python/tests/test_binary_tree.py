@@ -2,6 +2,7 @@ from binary_tree.binary_tree import BinaryTree
 from binary_tree.node import Node
 from binary_tree.binary_search_tree import BinarySearchTree
 import pytest
+import random
 '''
 Can successfully instantiate an empty tree
 Can successfully instantiate a tree with a single root node
@@ -191,4 +192,15 @@ def test_bst_contains_false():
 
     actual = bstree.contains(12)
     expected = False
+    assert actual == expected
+
+def test_big_tree():
+    bstree = BinarySearchTree()
+    rand = [i for i in range(100)]
+    while rand:
+        random.shuffle(rand)
+        bstree.add(rand.pop())
+
+    actual = len(bstree.in_order())
+    expected = 100
     assert actual == expected
