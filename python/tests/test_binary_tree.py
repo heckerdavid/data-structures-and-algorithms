@@ -1,18 +1,21 @@
 from binary_tree.binary_tree import BinaryTree
 from binary_tree.node import Node
-
+from binary_tree.binary_search_tree import BinarySearchTree
+import pytest
 '''
 Can successfully instantiate an empty tree
 Can successfully instantiate a tree with a single root node
 Can successfully add a left child and right child to a single root node
-
 Can successfully return a collection from a preorder traversal
 Can successfully return a collection from an inorder traversal
-Can successfully return a collection from a postorder traversal'''
+Can successfully return a collection from a postorder traversal
+'''
+
 
 def test_import():
     assert BinaryTree
     assert Node
+    assert BinarySearchTree
 
 def test_node():
     node = Node(9)
@@ -96,4 +99,96 @@ def test_post_order():
 
     actual = tree.post_order()
     expected = [2, 4, 3]
+    assert actual == expected
+
+def test_binary_search_tree_empty():
+    assert BinarySearchTree()
+
+def test_bst_add():
+    bstree = BinarySearchTree()
+    bstree.add(5)
+
+    actual = bstree.root.value
+    expected = 5
+    assert actual == expected
+
+def test_bst_add_to_non_empty_less():
+    bstree = BinarySearchTree()
+    bstree.root = Node(7)
+    bstree.add(5)
+
+    actual = bstree.root.left.value
+    expected = 5
+    assert actual == expected
+
+def test_bst_add_to_non_empty_greater():
+    bstree = BinarySearchTree()
+    bstree.root = Node(7)
+    bstree.add(10)
+
+    actual = bstree.root.right.value
+    expected = 10
+    assert actual == expected
+
+
+def test_bst_add_to_full_less():
+    bstree = BinarySearchTree()
+    bstree.root = Node(7)
+    bstree.root.left = Node(5)
+    bstree.root.right = Node(10)
+    bstree.add(1)
+
+    actual = bstree.root.left.left.value
+    expected = 1
+    assert actual == expected
+
+def test_bst_add_to_full_greater():
+    bstree = BinarySearchTree()
+    bstree.root = Node(7)
+    bstree.root.left = Node(5)
+    bstree.root.right = Node(10)
+    bstree.add(9)
+
+    actual = bstree.root.right.left.value
+    expected = 9
+    assert actual == expected
+
+def test_bst_contains_left():
+    bstree = BinarySearchTree()
+    bstree.root = Node(7)
+    bstree.root.left = Node(5)
+    bstree.root.right = Node(10)
+
+    actual = bstree.contains(5)
+    expected = True
+    assert actual == expected
+
+def test_bst_contains_right():
+    bstree = BinarySearchTree()
+    bstree.root = Node(7)
+    bstree.root.left = Node(5)
+    bstree.root.right = Node(10)
+
+    actual = bstree.contains(10)
+    expected = True
+    assert actual == expected
+
+def test_bst_contains_false():
+    bstree = BinarySearchTree()
+    bstree.root = Node(7)
+    bstree.root.left = Node(5)
+    bstree.root.right = Node(10)
+
+    actual = bstree.contains(2)
+    expected = False
+    assert actual == expected
+
+def test_bst_contains_false():
+    bstree = BinarySearchTree()
+    bstree.root = Node(7)
+    bstree.root.left = Node(5)
+    bstree.root.right = Node(10)
+
+    actual = bstree.contains(12)
+    expected = False
     assert actual == expected
