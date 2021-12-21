@@ -38,25 +38,25 @@ def test_node_right():
 
 def test_empty_tree():
     tree = BinaryTree()
-    actual = tree.root.value
+    actual = tree.root
     expected = None
     assert actual == expected
 
 def test_empty_tree_children():
-    tree = BinaryTree()
+    tree = BinaryTree(Node(None))
     actual = tree.root.left
     expected = None
     assert actual == expected
 
 def test_add_to_tree():
-    tree = BinaryTree(1)
+    tree = BinaryTree(Node(1))
 
     actual = tree.root.value
     expected = 1
     assert actual == expected
 
 def test_add_left_to_tree():
-    tree = BinaryTree(3)
+    tree = BinaryTree(Node(3))
     tree.add(2)
 
     actual = tree.root.left.value
@@ -64,7 +64,7 @@ def test_add_left_to_tree():
     assert actual == expected
 
 def test_add_right_to_tree():
-    tree = BinaryTree(3)
+    tree = BinaryTree(Node(3))
     tree.add(2)
     tree.add(5)
 

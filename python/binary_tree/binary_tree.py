@@ -2,7 +2,8 @@ from binary_tree.node import Node
 
 class BinaryTree:
     def __init__(self, root=None) -> None:
-        self.root = Node(root)
+        # TODO fix this
+        self.root = root
 
 
     def add(self, value) -> None:
@@ -14,22 +15,22 @@ class BinaryTree:
 
     def find_max_value(self):
 
-        if not self.root.value:
+        if self.root is None:
             return None
 
-        current_max = 0
 
-        def walk(root):
-            nonlocal current_max
+        def walk(root, max):
+
             if root is None:
-                return
-            if root.value > current_max:
-                current_max = root.value
+                return max
+            if root.value > max:
+                max = root.value
 
-            walk(root.left)
-            walk(root.right)
+            max = walk(root.left, max)
+            max = walk(root.right, max)
+            return max
 
-        walk(self.root)
+        current_max = walk(self.root, 0)
         return current_max
 
     def pre_order(self) -> list:
