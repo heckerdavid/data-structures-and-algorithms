@@ -12,6 +12,26 @@ class BinaryTree:
         elif self.root.right is None:
             self.root.right = Node(value)
 
+    def find_max_value(self):
+
+        if not self.root.value:
+            return None
+
+        current_max = 0
+
+        def walk(root):
+            nonlocal current_max
+            if root is None:
+                return
+            if root.value > current_max:
+                current_max = root.value
+
+            walk(root.left)
+            walk(root.right)
+
+        walk(self.root)
+        return current_max
+
     def pre_order(self) -> list:
         output = []
 
