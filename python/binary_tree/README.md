@@ -22,6 +22,15 @@ Arguments: none
 Returns: number
 Find the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric.
 
+Challenge 17:
+
+* Write a function called breadth first
+Arguments: tree
+Return: list of all values in the tree, in the order they were encountered
+
+PR: https://github.com/heckerdavid/data-structures-and-algorithms/pull/30
+![Breadth First](breadth_first.png)
+
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 

@@ -5,8 +5,9 @@ from binary_tree.node import Node
 class BinarySearchTree(BinaryTree):
 
     def add(self, value=None):
-        if self.root.value is None:
+        if self.root is None:
             self.root = Node(value)
+            return
 
         def walk(root, value):
 

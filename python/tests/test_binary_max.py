@@ -12,7 +12,7 @@ def test_find_max_in_empty():
 
 def test_max_is_root():
     tree = BinaryTree()
-    tree.root.value = 10
+    tree.root = Node(10)
 
     actual = tree.find_max_value()
     expected = 10
@@ -20,7 +20,7 @@ def test_max_is_root():
 
 def test_max_is_left():
     tree = BinaryTree()
-    tree.root.value = 10
+    tree.root = Node(10)
     tree.root.left = Node(11)
 
     actual = tree.find_max_value()
@@ -29,7 +29,7 @@ def test_max_is_left():
 
 def test_max_is_right():
     tree = BinaryTree()
-    tree.root.value = 10
+    tree.root = Node(10)
     tree.root.left = Node(11)
     tree.root.right = Node(12)
 
@@ -39,7 +39,7 @@ def test_max_is_right():
 
 def test_max():
     tree = BinaryTree()
-    tree.root.value = 10
+    tree.root = Node(10)
     tree.root.left = Node(11)
     tree.root.left.right = Node(11)
     tree.root.left.left = Node(11)
