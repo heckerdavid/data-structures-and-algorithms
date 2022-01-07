@@ -86,4 +86,5 @@ From the root of the `data-structures-and-algorithms/python` folder, execute the
 * [Challenge 12 - AnimalShelter](./stack_queue_animal_shelter/README.md)
 * [Challenge 13 - Bracket Validation](./stack_queue_brackets/README.md)
 * [Trees](./binary_tree/README.md)
-* [Insertion Sort](sorts/insertion_sort/README.md)
+* [Insertion Sort](sorts/insertion_sort/blog.md)
+* [Merge Sort](sorts/merge_sort/blog.md)
