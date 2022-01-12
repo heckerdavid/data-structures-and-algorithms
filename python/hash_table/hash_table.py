@@ -32,14 +32,32 @@ class HashTable():
 
         index_inner_list = self.table[hash_key]
 
-        if len(index_inner_list) == 1:
-            return index_inner_list[0][1]
-        elif len(index_inner_list) == 0:
-            return f' {key}Not in hash table'
+        if len(index_inner_list) == 0:
+            return None
         else:
             for pair in index_inner_list:
                 if pair[0] == key:
                     return pair[1]
+        return None
 
     def contains(self, key):
         return bool(self.get(key))
+
+    def remove(self, key):
+        hash_key = self.hash(key)
+
+        index_inner_list = self.table[hash_key]
+
+
+        if len(index_inner_list) == 1:
+            return_value = index_inner_list[0][1]
+            self.table[hash_key] = []
+        elif len(index_inner_list) == 0:
+            return_value =  f' {key} not in hash table'
+        else:
+            for pair in index_inner_list:
+                if pair[0] == key:
+                    return_value = pair[1]
+                    index_inner_list.remove(pair)
+
+        return return_value
