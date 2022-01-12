@@ -11,6 +11,12 @@
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+Time: O(n)
+Space: O(n)
+
+remove punctuation: Time: O(n) Space: O(1)
+split into list: Time: O(n) Space O(n)
+compare values in list: Time: O(n) Space: O(n)
 
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->
