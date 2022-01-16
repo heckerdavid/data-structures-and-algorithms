@@ -2,7 +2,8 @@ class HashTable():
 
     def __init__(self) -> None:
         self.length = 701
-        self.table = [[]] * self.length
+
+        self.table = [None] * self.length
 
     def hash(self, key) -> int:
 
@@ -23,6 +24,9 @@ class HashTable():
     def add(self, key, value) -> None:
         hash_key = self.hash(key)
 
+        if self.table[hash_key] is None:
+            self.table[hash_key] = []
+
         index_inner_list = self.table[hash_key]
 
         index_inner_list.append((key, value))
@@ -32,7 +36,7 @@ class HashTable():
 
         index_inner_list = self.table[hash_key]
 
-        if len(index_inner_list) == 0:
+        if index_inner_list is None:
             return None
         else:
             for pair in index_inner_list:
