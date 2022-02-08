@@ -1,5 +1,5 @@
 from stack_and_queue.underflow import UnderFlowError
-from stack_queue_animal_shelter.stack_queue_animal_shelter import AnimalShelter
+from CodeFellows401.stack_queue_animal_shelter.stack_queue_animal_shelter import AnimalShelter
 import pytest
 
 def test_import():

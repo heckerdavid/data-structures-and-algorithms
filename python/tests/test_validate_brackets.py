@@ -1,4 +1,4 @@
-from stack_queue_brackets.validate_brackets import validate_brackets
+from CodeFellows401.stack_queue_brackets.validate_brackets import validate_brackets
 
 def test_import():
     assert validate_brackets

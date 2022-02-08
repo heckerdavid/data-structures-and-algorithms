@@ -1,4 +1,4 @@
-from code_challenges.reverse_linked_list import reverse_list
+from CodeFellows401.code_challenges.reverse_linked_list import reverse_list
 
 
 def test_import():

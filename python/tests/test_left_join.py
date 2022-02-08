@@ -1,4 +1,4 @@
-from left_join.left_join import left_join
+from CodeFellows401.left_join.left_join import left_join
 
 def test_import():
     assert left_join

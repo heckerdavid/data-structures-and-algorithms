@@ -1,5 +1,5 @@
 from hash_table.hash_table import HashTable
-from tree_intersection.tree_intersection import find_common_values, convert_tree_to_hashtable, tree_intersection
+from CodeFellows401.tree_intersection.tree_intersection import find_common_values, convert_tree_to_hashtable, tree_intersection
 from binary_tree.binary_search_tree import BinarySearchTree
 
 def test_import():

@@ -1,4 +1,4 @@
-from linked_list_zip.linked_list_zip import zip_lists
+from CodeFellows401.linked_list_zip.linked_list_zip import zip_lists
 from linked_list.linked_list import LinkedList, Node
 
 

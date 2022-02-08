@@ -1,4 +1,4 @@
-from fizz_buzz_tree.fizz_buzz_tree import fizz_buzz_tree
+from CodeFellows401.fizz_buzz_tree.fizz_buzz_tree import fizz_buzz_tree
 from k_ary_tree.k_ary_tree import KaryTree
 from k_ary_tree.node import Node
 

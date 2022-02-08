@@ -1,5 +1,5 @@
 from stack_and_queue.underflow import UnderFlowError
-from stack_queue_pseudo.stack_queue_pseudo import PseudoQueue
+from CodeFellows401.stack_queue_pseudo.stack_queue_pseudo import PseudoQueue
 import pytest
 
 def test_import():
