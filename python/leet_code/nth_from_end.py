@@ -14,6 +14,7 @@ class Solution:
             else:
                 raise IndexError
 
+
         while leader.next:
             leader = leader.next
             follower = follower.next
