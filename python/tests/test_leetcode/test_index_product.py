@@ -27,7 +27,7 @@ def test_prod_idx_negatives():
 
 
 
-def test_prod_idx_mulitple_negatives():
+def test_prod_idx_multiple_negatives():
     nums = [-3, -2, -1, -1]
 
     actual = product_index(nums)
