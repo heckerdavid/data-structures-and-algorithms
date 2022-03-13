@@ -1,9 +1,11 @@
 from leet_code.delay_func import delay
 import time
+import pytest
 
 def test_import():
     assert delay
 
+@pytest.mark.skip()
 def test_delay():
     def func():
         pass
