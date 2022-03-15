@@ -24,7 +24,7 @@ def test_linked_intersection():
     expected = eight
     assert actual == expected
 
-def test_linked_intersection():
+def test_linked_intersection_overlap():
     three = Node(3)
     seven = Node(7)
     eight = Node(8)
